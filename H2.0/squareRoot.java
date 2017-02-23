@@ -1,15 +1,15 @@
 import java.lang.Math;
 public class squareRoot {
-	private int source;
-	private int guess;
-	private int nextGuess;
-	private int error;
-	private int acceptableError;
+	private double source;
+	private double guess;
+	private double nextGuess;
+	private double error;
+	private double acceptableError;
 	public squareRoot(int a, int b){
 		source = a;
 		acceptableError = b;
 		guess = source/2;
-		error = source - (guess*guess);
+		error = Math.abs(source - (guess*guess));
 		guessCheck();
 			
 		
@@ -17,17 +17,18 @@ public class squareRoot {
 	public void guessCheck(){
 		if (error > acceptableError)
 		{
-			nextGuess = (guess+source)/guess;
+			nextGuess = 0.5*(guess+(source/guess));
 			error = Math.abs(source - (nextGuess*nextGuess));
-			guess = nextGuess;
+			nextGuess = guess;
 			guessCheck();
 		}
 		else{
 			System.out.print(guess);
+			return;
 		}
 	}
 	public static void main(String []args){
-		new squareRoot(400, 0);
+		new squareRoot(64, 0);
 		
 	}
 }
