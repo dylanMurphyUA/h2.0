@@ -10,15 +10,22 @@ public class squareRoot {
 		acceptableError = b;
 		guess = source/2;
 		error = source - (guess*guess);
+		guessCheck();
+			
 		
 	}
-	private boolean guessCheck(){
-		if (error<acceptableError){
-			return true;
+	public void guessCheck(){
+		if (error > acceptableError)
+		{
+			nextGuess = (guess+source)/guess;
+			error = source - (nextGuess*nextGuess);
+			guess = nextGuess;
+			guessCheck();
 		}
-		
+		else{
+			return;
 		}
+	}
 }
-	
 	
 
