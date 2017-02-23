@@ -14,11 +14,17 @@ public class squareRoot {
 			
 		
 	}
-	public void newGuess(double i){
+	public void newGuess(double i)
+	{
 		System.out.println("...");
 		if (error <= acceptableError)
 		{
-			System.out.print(nextGuess);
+			if(nextGuess == 0){
+				System.out.print(guess);
+			}
+			else{
+				System.out.print(nextGuess);
+			}
 			return;
 		}
 		else
@@ -32,7 +38,7 @@ public class squareRoot {
 		}
 	}
 	public static void main(String []args){
-		new squareRoot(244.12, 0.00002);
+		new squareRoot(234234, 0.00002);
 		
 	}
 }
