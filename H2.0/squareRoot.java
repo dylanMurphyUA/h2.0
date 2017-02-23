@@ -1,4 +1,4 @@
-
+import java.lang.Math;
 public class squareRoot {
 	private int source;
 	private int guess;
@@ -18,13 +18,17 @@ public class squareRoot {
 		if (error > acceptableError)
 		{
 			nextGuess = (guess+source)/guess;
-			error = source - (nextGuess*nextGuess);
+			error = Math.abs(source - (nextGuess*nextGuess));
 			guess = nextGuess;
 			guessCheck();
 		}
 		else{
-			return;
+			System.out.print(guess);
 		}
+	}
+	public static void main(String []args){
+		new squareRoot(400, 0);
+		
 	}
 }
 	
