@@ -10,21 +10,22 @@ public class squareRoot {
 		acceptableError = b;
 		guess = source/2;
 		error = Math.abs(source - (guess*guess));
-		guessCheck();
+		newGuess(guess);
 			
 		
 	}
-	public void guessCheck(){
-		if (error > acceptableError)
+	public boolean newGuess(double i){
+		if (error <= acceptableError)
 		{
-			nextGuess = 0.5*(guess+(source/guess));
-			error = Math.abs(source - (nextGuess*nextGuess));
-			nextGuess = guess;
-			guessCheck();
+			System.out.print(guess);
+			return true;
 		}
 		else{
-			System.out.print(guess);
-			return;
+			
+			nextGuess = 0.5*(i+(source/i));
+			error = Math.abs(source - (nextGuess*nextGuess));
+			newGuess(nextGuess);
+			return false;
 		}
 	}
 	public static void main(String []args){
