@@ -5,7 +5,7 @@ public class squareRoot {
 	private double nextGuess;
 	private double error;
 	private double acceptableError;
-	public squareRoot(int a, int b){
+	public squareRoot(double a, double b){
 		source = a;
 		acceptableError = b;
 		guess = source/2;
@@ -14,22 +14,25 @@ public class squareRoot {
 			
 		
 	}
-	public boolean newGuess(double i){
+	public void newGuess(double i){
+		System.out.println("...");
 		if (error <= acceptableError)
 		{
-			System.out.print(guess);
-			return true;
+			System.out.print(nextGuess);
+			return;
 		}
-		else{
-			
+		else
+		{
+			System.out.println("nextGuess:"+ nextGuess);
+			System.out.println("error:"+ error);
 			nextGuess = 0.5*(i+(source/i));
 			error = Math.abs(source - (nextGuess*nextGuess));
 			newGuess(nextGuess);
-			return false;
+			
 		}
 	}
 	public static void main(String []args){
-		new squareRoot(64, 0);
+		new squareRoot(244.12, 0.00002);
 		
 	}
 }
